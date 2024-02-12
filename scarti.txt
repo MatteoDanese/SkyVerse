@@ -1,0 +1,49 @@
+<?php
+                        $recipes = json_decode(file_get_contents('ricette.json'), true);
+                        
+                        if(empty($recipes)){
+                            echo "<h2>Nessuna pubblicazione disponibile, premi il tasto + per pubblicare una</h2>";
+                        } else {
+                            foreach ($recipes as $index => $recipe) {
+                                echo '<div class="card">
+                                        <img class="cardImg" src="' . $recipe['image'] . '"  style="width:100%">
+                                        <form action ="deleteEdit.php" method ="POST" style="margin-left:1000px;margin-top:-150px; position:absolute;">
+                                            <button type="submit" class="iconBtnCard" name ="delete" ><i class="fa fa-trash"></i></button>
+                                            <input type="hidden" name="index" value="' . $index . '">
+                                        </form>
+                                        <button class="iconBtnCard" onclick="openFormEdit()" name ="edit" style="transform: translate(-130%, 40%);"><i class="fa fa-edit"></i></button>
+                                        <div class="container">
+                                            <h1 style="position:absolute;"><b>' . $recipe['title'] . '</b></h1>
+                                            <lable for ="ing"><b>Ingredients</b></lable>
+                                            <p name ="ing">' . $recipe['ingredients'] . '</p> <br>
+                                            <lable for ="istr"><b>Istructions</b></lable>
+                                            <p name ="istr">' . $recipe['istructions'] . '</p> <br><br>
+                                        </div>
+                                    </div>';
+                            }
+                        }
+                    ?>
+
+
+
+                    <?php
+                        $recipes = json_decode(file_get_contents('ricette.json'), true);
+                        
+                        if(empty($recipes)){
+                            echo "<h2>Nessuna pubblicazione disponibile, premi il tasto + per pubblicare una</h2>";
+                        } else {
+                            foreach ($recipes as $index => $recipe) {
+                                echo '<div class="card">
+                                        <div class="cardImgContainer">
+                                            <img class="cardImg" src="' . $recipe['image'] . '" style="width:100%">
+                                            <div class="imgOverlay">
+                                                <h1 style="  text-shadow: 2px 2px 5px #242424;"><b>' . $recipe['title'] . '</b></h1>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="iconBtnCard" name="delete"><i class="fa fa-trash"></i></button>
+                                        <input type="hidden" name="index" value="' . $index . '">
+                                        <button class="iconBtnCard" onclick="openFormEdit()" name="edit" style="transform: translate(-130%, 40%);"><i class="fa fa-edit"></i></button>
+                                    </div>';
+                            }
+                        }
+                    ?>

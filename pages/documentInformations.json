@@ -1,0 +1,17 @@
+[
+    {
+        "content": "<p>Missioni della nasa :<\/p><p><br><\/p><p>1. Apollo: Una serie di missioni spaziali umane per l&#39;esplorazione lunare, culminate con l&#39;allunaggio dell&#39;Apollo 11 nel 1969.<\/p><p>2. Mars Rover: Missioni robotiche su Marte per esplorare la superficie del pianeta rosso, studiarne la geologia e cercare segni di vita passata o presente.<\/p><p>3. Voyager: Sonde spaziali lanciate per esplorare i pianeti esterni e lo spazio interstellare. La Voyager 1 e 2 sono le prime sonde ad aver raggiunto lo spazio interstellare.<\/p>",
+        "path": "nasa_missions.php",
+        "author": "matteo"
+    },
+    {
+        "content": "<p><strong>TEMPESTE SOLARI:<\/strong><\/p><p>Una tempesta solare &egrave; un disturbo della magnetosfera terrestre, di carattere temporaneo, causato dall&#39;attivit&agrave; solare e rilevabile dai magnetometri in ogni punto della Terra<\/p>",
+        "path": "tempeste_solari.php",
+        "author": "matteo"
+    },
+    {
+        "content": "<p>asdiuoasdijohadfjkdaf<strong>shsjhdasakasjhdasd<\/strong><\/p>",
+        "path": "ciao.php",
+        "author": "matteo"
+    }
+]
