@@ -3,7 +3,7 @@
     $index = $_POST['index'];
     $headerFile = $_POST['nameFile'];
 
-    $docs = json_decode(file_get_contents('documentSpace.json'), true);
+//    $docs = json_decode(file_get_contents('documentSpace.json'), true);
 
 /* JSON
 

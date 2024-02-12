@@ -138,13 +138,14 @@
         </style>
     </head>
     <?php
-        $docs = json_decode(file_get_contents('documentInformations.json'), true);
-        $docSpace = json_decode(file_get_contents('documentSpace.json'), true);
+#        $docs = json_decode(file_get_contents('documentInformations.json'), true);
+#        $docSpace = json_decode(file_get_contents('documentSpace.json'), true);
 
         if(!isset($_COOKIE['username'])) {
             $showButton = "";
             $showLable = true;
             $showLogout = false;
+            $username ="";
         }
         else
         {
@@ -154,7 +155,7 @@
             $showLogout = true;
             $response = "<h3>Home Page di $username</h3><br />";
         }
-
+/*
         foreach($docs as $doc){
             $document = [
                 "author" => $doc['author'],
@@ -163,6 +164,24 @@
             ];
             $history[] = $document;
         }
+*/
+    require_once('../DataBase/DB.php');
+    $DB = new DB();
+    $history = [];
+    $sql = "SELECT title, username, content FROM documents";
+    $result = $DB->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($doc = $result->fetch_assoc()) {
+            $document = [
+                "username" => $doc['username'],
+                "title" => $doc['title'],
+                "content" => $doc['content']
+            ];
+            $history[] = $document;
+        }
+    }
+
     ?>
     <div class ="background">
     <header class="header">
@@ -192,7 +211,7 @@
                             
                             <tr>
                                 <td><?= $h['title'] ?></td>
-                                <td><?= $h['author'] ?></td>
+                                <td><?= $h['username'] ?></td>
                                 <td><?= $h['content'] ?></td>
                             </tr>
                         <?php } ?>

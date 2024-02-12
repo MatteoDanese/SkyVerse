@@ -22,15 +22,20 @@
                         $showLogout = true;
                     }
                 
-                    $docs = json_decode(file_get_contents('../documentInformations.json'), true);
-                    $presente = false;
-                    foreach ($docs as $doc)
-                    {
-                        if($doc['path'] == basename(__FILE__)){
-                            $content = $doc['content'];
-                            $presente = true;
-                            break;
-                        }
+                    require_once('../../DataBase/DB.php');
+                    $DB = new DB();
+                    
+                    $sql = "SELECT content FROM documents WHERE file_name = ?";
+                    $params = [basename(__FILE__)];
+                    $types = "s";
+                    $result = $DB->preparedQuery($sql, $params, $types);
+                    
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $content = $row['content'];
+                        $content = htmlspecialchars($content);
+                    } else {
+                        $content = "";
                     }
                     ?>
                 <header>
