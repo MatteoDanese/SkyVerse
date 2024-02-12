@@ -67,7 +67,7 @@
     <tr>
         <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents Space</b></h2></th>
         <th style="border-bottom:1px solid black;">
-            <? echo $showButtonPlus; ?>
+            <?php echo $showButtonPlus; ?>
         </th>
     </tr>
         <?php

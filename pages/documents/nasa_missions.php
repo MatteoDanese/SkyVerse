@@ -5,10 +5,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.7/css/froala_editor.pkgd.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.7/js/froala_editor.pkgd.min.js"></script>
         <?php
+            $content ="";
             if(!isset($_COOKIE['username'])) {
                 $showButton = "";
                 $showLable = true;
                 $showLogout = false;
+                $username ="";
+                $showButtonSave = "";
             }
             else
             {
@@ -55,18 +58,18 @@
             <form action="../documentInformationAdd.php" method="POST">
                 <!-- <textarea class="txtArea" id="txxtArea" autofocus rows="1" onkeydown="addRow(event)"></textarea> -->
                 <div style="align-items:center; max-width:50%px;">
-                <input type="hidden" name ="nameFile" value=<?=basename(__FILE__);?>> <!-- nome file -->
-                <input type="hidden" name ="username" value=<?=$username?>>
+                <input type="hidden" name ="nameFile" value=<?php echo basename(__FILE__);?>> <!-- nome file -->
+                <input type="hidden" name ="username" value=<?php echo $username ?>>
                     <textarea id='editor' name ="txtAreaEditor"><?= $content ?></textarea>
-                   <script>
-                    new FroalaEditor('#editor', {
-                        toolbarButtons: ['bold', 'italic', 'underline', 'insertLink', 'insertImage'],
-                        heightMin: 200,
-                        heightMax: 400
-                    })
+                    <script>
+                        new FroalaEditor('#editor', {
+                            toolbarButtons: ['bold', 'italic', 'underline', 'insertLink', 'insertImage'],
+                            heightMin: 200,
+                            heightMax: 400
+                        })
                     </script>
                 </div>
-                <br><?= $showButtonSave ?>
+                <br><?php echo $showButtonSave ?>
             </form>
         </section>
     </body>

@@ -13,6 +13,7 @@
                 $showButton = "";
                 $showLable = true;
                 $showLogout = false;
+                $username = "";
             }
             else
             {
@@ -56,7 +57,7 @@
     <tr>
         <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents Information Technology</b></h2></th>
         <th style="border-bottom:1px solid black;">
-            <?= $showButtonPlus ?>
+            <? echo $showButtonPlus ?>
         </th>
     </tr>
         <?php
