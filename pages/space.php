@@ -13,6 +13,7 @@
                 $showButton = "";
                 $showLable = true;
                 $showLogout = false;
+                $username = "";
             }
             else
             {
@@ -66,7 +67,7 @@
     <tr>
         <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents Space</b></h2></th>
         <th style="border-bottom:1px solid black;">
-            <?= $showButtonPlus ?>
+            <? echo $showButtonPlus; ?>
         </th>
     </tr>
         <?php
@@ -95,14 +96,14 @@
                 }
             }
 
-            <div class="formPopup2" id="formPop2">
-                                    <form action="deleteEdit.php" class="form-container2" id="formDelete_'.$index.'" method = "POST" >
-                                        <h1 style="color:black;">Are you sure?</h1>
-                                        <input type="hidden" name="hiddenIndex" id="indexInput" value="'.$index.'">
-                                        <button type="submit" name="delete" class="btn"> delete </button>
-                                    </form>
-                                </div>
-            */
+                <div class="formPopup2" id="formPop2">
+                    <form action="deleteEdit.php" class="form-container2" id="formDelete_'.$index.'" method = "POST" >
+                        <h1 style="color:black;">Are you sure?</h1>
+                        <input type="hidden" name="hiddenIndex" id="indexInput" value="'.$index.'">
+                        <button type="submit" name="delete" class="btn"> delete </button>
+                    </form>
+                </div>
+        */
 
             /*VIEW 2*/
             if(empty($documents)){
