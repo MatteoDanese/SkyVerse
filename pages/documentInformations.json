@@ -10,8 +10,8 @@
         "author": "matteo"
     },
     {
-        "content": "<p>ciao<strong>ciao<em>ciao<\/em><\/strong><\/p>",
-        "path": "ciao.php",
+        "content": "",
+        "path": "sql.php",
         "author": "matteo"
     }
 ]

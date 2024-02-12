@@ -36,6 +36,19 @@
         ];
     }
 
+    require_once('../DataBase/DB.php');
+    $DB = new DB();
+    $sql = "SELECT * FROM documents WHERE file_name = ?";
+    $params = [$nameFile];
+    $types = "s";
+    $result = $DB->preparedQuery($sql, $params, $types);
+
+    if ($result->num_rows > 0) {
+        $sql = "UPDATE documents SET content = ?, username = ? WHERE file_name = ?";
+        $params = [$content, $author, $nameFile];
+        $types = "sss";
+        $result = $DB->preparedQuery($sql, $params, $types);
+    }
     /*
     foreach($docs as &$doc)
     {
@@ -55,6 +68,6 @@
     }
   */  
     
-    file_put_contents('documentInformations.json', json_encode($docs, JSON_PRETTY_PRINT));
+    #file_put_contents('documentInformations.json', json_encode($docs, JSON_PRETTY_PRINT));
     header("Location: documents/".$nameFile);
 ?>

@@ -1,13 +1,4 @@
-<?php
-    $title = $_POST['title'];
-    $username = $_POST['user'];
 
-    $docs = json_decode(file_get_contents('documentSpace.json'), true);
-
-    # CREO UNA PAGINA PHP PER OGNI DOCUMENTO IN MODO CHE IL PROPRIETARIO POSSA ACCEDERE AL DOCUMENTO E MODIFICARNE IL CONTENUTO
-    $fileName = strtolower(str_replace(' ', '_', $title)) . '.php';
-    $filePath = 'documents/' . strtolower(str_replace(' ', '_', $title)) . '.php';
-    $fileContent = '
     <!DOCTYPE html>
         <html>
             <head>
@@ -16,7 +7,7 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.7/js/froala_editor.pkgd.min.js"></script>
                 <?php
                     $content ="";
-                    if(!isset($_COOKIE[\'username\'])) {
+                    if(!isset($_COOKIE['username'])) {
                         $showButton = "";
                         $showLable = true;
                         $showLogout = false;
@@ -25,24 +16,24 @@
                     }
                     else
                     {
-                        $username = $_COOKIE[\'username\'];
-                        $showButtonSave = \'<button type="submit" class="saveBtn" name="save">SAVE</button>\';
+                        $username = $_COOKIE['username'];
+                        $showButtonSave = '<button type="submit" class="saveBtn" name="save">SAVE</button>';
                         $showLable = false;
                         $showLogout = true;
                     }
-/*                
-                    $docs = json_decode(file_get_contents(\'../documentInformations.json\'), true);
+                /*
+                    $docs = json_decode(file_get_contents('../documentInformations.json'), true);
                     $presente = false;
                     foreach ($docs as $doc)
                     {
-                        if($doc[\'path\'] == basename(__FILE__)){
-                            $content = $doc[\'content\'];
+                        if($doc['path'] == basename(__FILE__)){
+                            $content = $doc['content'];
                             $presente = true;
                             break;
                         }
                     }
-*/
-                    require_once(\'../../DataBase/DB.php\');
+                */
+                    require_once('../../DataBase/DB.php');
                     $DB = new DB();
                     
                     $sql = "SELECT content FROM documents WHERE file_name = ?";
@@ -52,7 +43,7 @@
                     
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
-                        $content = $row[\'content\'];
+                        $content = $row['content'];
                         $content = htmlspecialchars($content);
                     } else {
                         $content = "";
@@ -65,8 +56,8 @@
                             <li><a href="../space.php">Space</a></li>
                             <li><a href="../IT.php">Computer Sience</a></li>
                             <li><a href="../neuro.php">Neurology</a></li>
-                            <li style="float:right; display: <?php echo $showLable ? \'block\' : \'none\'; ?>; "><a href="../login.php">Login</a></li>
-                            <li style="float:right; display: <?php echo $showLogout ? \'block\' : \'none\'; ?>;"><a href="../unsetCookie.php">Logout</a></li>                
+                            <li style="float:right; display: <?php echo $showLable ? 'block' : 'none'; ?>; "><a href="../login.php">Login</a></li>
+                            <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="../unsetCookie.php">Logout</a></li>                
                         </ul>
                 </header>
             </head>
@@ -81,10 +72,10 @@
                     <div style="align-items:center; max-width:50%px;">
                     <input type="hidden" name ="nameFile" value=<?php echo basename(__FILE__);?>> <!-- nome file -->
                     <input type="hidden" name ="username" value=<?php echo $username?>>
-                    <textarea id=\'editor\' name ="txtAreaEditor"><?= $content ?></textarea>
+                    <textarea id='editor' name ="txtAreaEditor"><?= $content ?></textarea>
                         <script>
-                        new FroalaEditor(\'#editor\', {
-                            toolbarButtons: [\'bold\', \'italic\', \'underline\', \'insertLink\', \'insertImage\'],
+                        new FroalaEditor('#editor', {
+                            toolbarButtons: ['bold', 'italic', 'underline', 'insertLink', 'insertImage'],
                             heightMin: 200,
                             heightMax: 400
                         })
@@ -95,32 +86,4 @@
                 </section>
             </body>
         </html>
-            ';
-
-
-    
-    file_put_contents($filePath, $fileContent);
-
-    $doc = [
-        'title' => $title,
-        'user' => $username,
-        'path' => $filePath
-    ];
-
-    $docs[] = $doc;
-    ###########################
-
-    require_once('../DataBase/DB.php');
-    $DB = new DB();
-    $tag ="space";
-    $sql= "INSERT INTO documents (tag, title, username, path, file_name, content) VALUES (?, ?, ?, ?, ?, ?)";
-    $params = [$tag, $title, $username, $filePath, $fileName, ""];
-    $types = "ssssss";
-    $result = $DB->preparedQuery($sql, $params, $types);
-
-
-
-    ##########################
-   # file_put_contents('documentSpace.json', json_encode($docs, JSON_PRETTY_PRINT));
-    header("Location: space.php");
-?>
+            

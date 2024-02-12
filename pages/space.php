@@ -71,7 +71,7 @@
         </th>
     </tr>
         <?php
-            $documents = json_decode(file_get_contents('documentSpace.json'), true);
+            # $documents = json_decode(file_get_contents('documentSpace.json'), true);
 
         /*VIEW 1 */
         /*
@@ -106,6 +106,7 @@
         */
 
             /*VIEW 2*/
+            /*
             if(empty($documents)){
                 echo "<tr><td><h2>Nessuna pubblicazione disponibile, premi il tasto + per pubblicare una</h2></td></tr>";
             } else {
@@ -125,6 +126,32 @@
                             </tr>';
                     }
             }
+            */
+            require_once('../DataBase/DB.php');
+            $DB = new DB();
+            $sql = "SELECT id, title, path, username FROM documents";
+            $documents = $DB->query($sql); 
+            
+            if ($documents->num_rows == 0) {
+                echo "<tr><td><h2>Nessuna pubblicazione disponibile, premi il tasto + per pubblicare una</h2></td></tr>";
+            } else {
+                while ($document = $documents->fetch_assoc()) {
+                    echo '
+                        <tr>
+                            <td>
+                                <i class="fa fa-file"></i>
+                                <a href ="'.$document['path'].'"><b>' . $document['title'] . '</b></a>
+                            </td> 
+                            <td style="text-align:center">
+                                <form action="deleteEdit.php" method ="POST">
+                                    <input type="hidden" name="index" value="'.$document['id'].'"> 
+                                    '.($username == $document['username'] ? $showButton : '').' 
+                                </form>
+                            </td>
+                        </tr>';
+                }
+            }
+
         ?>
         </table>
         </div>
