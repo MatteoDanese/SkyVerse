@@ -126,9 +126,9 @@
                     </div>
                     <div class="card">
                         <div class="cardImgContainer">
-                            <a href="pages/psiclogy.php"><img class="cardImg" src="imgs/sinapsi.jpg" style="width:100%"></a>
+                            <a href="pages/neuro.php"><img class="cardImg" src="imgs/sinapsi.jpg" style="width:100%"></a>
                             <div class="imgOverlay">
-                                <h1 style="  text-shadow: 2px 2px 5px #242424;"><b>PSICOLOGY</b></h1>
+                                <h1 style="  text-shadow: 2px 2px 5px #242424;"><b>NEUROLOGY</b></h1>
                             </div>
                         </div>
                     </div>

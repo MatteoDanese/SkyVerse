@@ -1,6 +1,7 @@
 <?php
     $title = $_POST['title'];
     $username = $_POST['user'];
+    $tag = $_POST['tag'];
 
     $docs = json_decode(file_get_contents('documentSpace.json'), true);
 
@@ -112,7 +113,6 @@
 
     require_once('../DataBase/DB.php');
     $DB = new DB();
-    $tag ="space";
     $sql= "INSERT INTO documents (tag, title, username, path, file_name, content) VALUES (?, ?, ?, ?, ?, ?)";
     $params = [$tag, $title, $username, $filePath, $fileName, ""];
     $types = "ssssss";

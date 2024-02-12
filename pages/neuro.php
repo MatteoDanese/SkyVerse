@@ -45,38 +45,26 @@
 
                 <label for="title"><b>Title</b></label>
                 <input type="text" placeholder="Enter Title" name="title" style="max-width:90%;" required>
-                <input type="hidden" name="tag" value="IT">
+                <input type="hidden" name="tag" value="neuroscience">
                 <input type="hidden" name="user" value=<?= $username?>>
                 
                 <button type ="submit" id="addCardBtn" class="btn">insert</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
-
-<!--
-        <div class="formPopup2" id="formPop2">
-            <form action="deleteEdit.php" class="form-container2" id="formDelete" method ="POST" >
-                <h1 style="color:black;">Are you sure?</h1>
-                <button type="submit" id="delete" class="btn" onclick="submitForm()"> delete </button>
-                <input type="hidden" name="hiddenIndex" id="indexInput" value="">
-            </form>
-        </div>
--->
 <!-- DIV CARDS -->
     <div class="divCards" style ="justify-content:center;margin-top:50px;">
     <table class="tableView">
     <tr>
-        <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents Computer Sience</b></h2></th>
+        <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents of Neurology</b></h2></th>
         <th style="border-bottom:1px solid black;">
             <?php echo $showButtonPlus; ?>
         </th>
     </tr>
         <?php
-            # $documents = json_decode(file_get_contents('documentSpace.json'), true);s
-
             require_once('../DataBase/DB.php');
             $DB = new DB();
-            $tag = "it";
+            $tag = "neuroscience";
             $sql = "SELECT id, title, path, username FROM documents WHERE tag=?";
             $params = [$tag];
             $types = "s";

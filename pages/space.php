@@ -45,6 +45,7 @@
 
                 <label for="title"><b>Title</b></label>
                 <input type="text" placeholder="Enter Title" name="title" style="max-width:90%;" required>
+                <input type="hidden" name="tag" value="space">
                 <input type="hidden" name="user" value=<?= $username?>>
                 
                 <button type ="submit" id="addCardBtn" class="btn">insert</button>
@@ -129,8 +130,11 @@
             */
             require_once('../DataBase/DB.php');
             $DB = new DB();
-            $sql = "SELECT id, title, path, username FROM documents";
-            $documents = $DB->query($sql); 
+            $tag = "space";
+            $sql = "SELECT id, title, path, username FROM documents WHERE tag=?";
+            $params = [$tag];
+            $types = "s";
+            $documents = $DB->preparedQuery($sql, $params, $types);
             
             if ($documents->num_rows == 0) {
                 echo "<tr><td><h2>Nessuna pubblicazione disponibile, premi il tasto + per pubblicare una</h2></td></tr>";
