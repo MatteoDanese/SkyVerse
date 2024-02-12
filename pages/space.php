@@ -144,6 +144,7 @@
                             </td> 
                             <td style="text-align:center">
                                 <form action="deleteEdit.php" method ="POST">
+                                <input type="hidden" name="nameFile" value="'.basename(__FILE__).'"> 
                                     <input type="hidden" name="index" value="'.$document['id'].'"> 
                                     '.($username == $document['username'] ? $showButton : '').' 
                                 </form>
