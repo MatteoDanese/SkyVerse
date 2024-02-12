@@ -44,7 +44,7 @@
         <script> function redirect(){ window.location.href = "pages/login.php"; } </script>  
     </head>
     <header class="header">
-        <div style="background-color: black;"><h1 class="title"><b>SkyVerse</b></h1></div>
+        <div style="background-color: black;"><h1 class="title" style="cursor:default;"><b>SkyVerse</b></h1></div>
             <ul>
                 <li><a class="home" href="index.php">Home</a></li>
                 <li><a href="pages/space.php">Space</a></li>
