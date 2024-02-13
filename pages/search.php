@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="../Styles/styleSpace.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <?php
             if(!isset($_COOKIE['username'])) {
                 $showButton = "";
