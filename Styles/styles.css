@@ -478,3 +478,41 @@ li a:hover:not(.home) {
 
 .dropdown a:hover {background-color: #ddd;}
 .show {display: block;}
+
+/*-----------------------------SEARCH BAR-----------------------------*/
+
+.box{
+  height: 30px;
+  cursor:pointer;
+  align-items: center;
+  padding: 10px 20px;
+  background:transparent ;
+  border-radius: 30px;
+}
+
+.box:hover input{
+  width:400px;
+}
+
+.box input{
+  width:200px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #fff;
+  outline:none;
+  border:none;
+  transition: 800ms;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.buttonSearch{
+  color: black;
+  background-color: #fff;
+  font-weight:bold;
+  padding: 9px 11px;
+  border-radius:15px;
+  text-decoration: none;
+  border:none;
+  cursor:pointer;
+}

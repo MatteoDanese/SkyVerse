@@ -3,7 +3,6 @@
     <head>
         <title>SkyVerse</title>      
         <script src="../script/script.js"></script>
-
         <link rel="stylesheet" href="../Styles/styleSpace.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
@@ -26,7 +25,7 @@
         ?>
         </head>
         <header class="header">
-            <div style="background-color: black;"><h1 class="title"><b>SkyVerse</b></h1></div>
+            <div style="background-color: black;"><h1 class="title"><b>Search Results</b></h1></div>
                 <ul>
                     <li><a class="home" href="../index.php">Home</a></li>
                     <li><a href="space.php">Space</a></li>
@@ -38,39 +37,24 @@
                 </ul>
         </header>
     <body>
-<!--------------------------- FORM POP-UP ADDCARD ------------------------------>
-        <div class="formPopup" id="formPop">
-            <form action="addCard.php" method="POST" class="form-container">
-                <h1 style="color:black;">New Document</h1>
-
-                <label for="title"><b>Title</b></label>
-                <input type="text" placeholder="Enter Title" name="title" style="max-width:90%;" required>
-                <input type="hidden" name="tag" value="IT">
-                <input type="hidden" name="user" value=<?= $username?>>
-                
-                <button type ="submit" id="addCardBtn" class="btn">insert</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
-
 <!-- DIV CARDS -->
     <div class="divCards" style ="justify-content:center;margin-top:50px;">
     <table class="tableView">
     <tr>
-        <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents Computer Sience</b></h2></th>
-        <th style="border-bottom:1px solid black;">
-            <?php echo $showButtonPlus; ?>
-        </th>
+        <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Results for "<?php echo $_POST['searchBar']; ?>"</b></h2></th>
+        <th style="border-bottom:1px solid black;"><h2><b>Author</b></h2></th>
     </tr>
         <?php
-            # $documents = json_decode(file_get_contents('documentSpace.json'), true);s
-
             require_once('../DataBase/DB.php');
+
+            $term = $_POST['searchBar'];
+            $present = false;
+
             $DB = new DB();
-            $tag = "it";
-            $sql = "SELECT id, title, path, username FROM documents WHERE tag=?";
-            $params = [$tag];
-            $types = "s";
+
+            $sql= "SELECT id, title, path, username FROM documents WHERE title LIKE ? OR content LIKE ? ";
+            $params = ["%$term%", "%$term%"];
+            $types = "ss";
             $documents = $DB->preparedQuery($sql, $params, $types);
             
             if ($documents->num_rows == 0) {
@@ -83,6 +67,9 @@
                                 <i class="fa fa-file"></i>
                                 <a href ="'.$document['path'].'"><b>' . $document['title'] . '</b></a>
                             </td> 
+                            <td style="text-align:center;">
+                                <a href ="'.$document['path'].'"><b>' . $document['username'] . '</b></a>
+                            </td>
                             <td style="text-align:center">
                                 <form action="deleteEdit.php" method ="POST">
                                 <input type="hidden" name="nameFile" value="'.basename(__FILE__).'"> 

@@ -53,9 +53,18 @@
                 <li style="float:right; display: <?php echo $showLable ? 'block' : 'none'; ?>; "><a href="pages/login.php">Login</a></li>
                 <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="pages/unsetCookie.php">Logout</a></li>                
             </ul>
+            <div class="box">
+                <form action="pages/search.php" method ="POST">
+                    <input type="search" name ="searchBar" placeholder="Type something...">
+                    <button class ="buttonSearch" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+    
     </header>
     <body style="text-align:center;">
-
+    
 <!--
             <div style="text-align:right; justify-content:right;"> 
                     <button class="loginBtn" onclick="redirect()" style="display: <?php echo $showLable ? 'block' : 'none'; ?>; "><b>Login</b></button>  
@@ -73,6 +82,8 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+        <br><br><br>
+
 <!---------------------------HOMEPAGE------------------------------>
             <div class="divHomePageImg">
                 <!-- <img class="img" src="imgs/nasa.jpg"  style="width:100%;  height: auto;"> -->
