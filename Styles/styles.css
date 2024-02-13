@@ -362,12 +362,13 @@ li a:hover:not(.home) {
   position:absolute;
   overflow: hidden;
   width:100vw;
+  top: 30%;
   height:100%;
 }
 
 .overlayText {
   position: relative;
-  top: 10%;
+  top: 0%;
   left: 5%;
   margin-bottom:10%;
   color: white;

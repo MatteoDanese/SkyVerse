@@ -41,7 +41,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
         <title>SkyVerse</title>      
-        <script> function redirect(){ window.location.href = "pages/login.php"; } </script>  
+        <script> 
+            function redirect(){ window.location.href = "pages/login.php"; } 
+            function scrollToPosition() {
+                var pos = document.getElementById('divCards');    
+                if (pos) {
+                    pos.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        </script>  
     </head>
     <header class="header">
         <div style="background-color: black;"><h1 class="title" style="cursor:default;"><b>SkyVerse</b></h1></div>
@@ -95,7 +103,7 @@
                    <p class ="littleParagraph">Una ricca raccolta di documenti sull'informatica,</p>
                    <p class ="littleParagraph">il tuo go-to repository per risorse e conoscenze nel</p> 
                    <p class ="littleParagraph">mondo della scienza e della tecnologia.</p><br>
-                   <button class="getStartedBtn"><h2>GET STARTED</h2></button>
+                   <button class="getStartedBtn"  onclick="scrollToPosition()"><h2>GET STARTED</h2></button>
                 </div>
             </div>
 
@@ -106,7 +114,7 @@
                     </div>
 
 <!--------------------------- ADDCARDS MECHANISM ------------------------------>
-                <div class="divCards" style ="justify-content:center;margin-top:50px;">
+                <div class="divCards" id ="divCards" style ="justify-content:center;margin-top:50px;">
                     <div class="card">
                         <div class="cardImgContainer">
                             <a href="pages/space.php"> <!-- <img class="cardImg" src="imgs/nebula.jpg" style="width:100%"></a> -->
