@@ -7,13 +7,13 @@
         <link rel="stylesheet" href="../Styles/styleSpace.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <?php
             if(!isset($_COOKIE['username'])) {
                 $showButton = "";
                 $showLable = true;
                 $showLogout = false;
                 $username = "";
+                $showButtonPlus = "";
             }
             else
             {
@@ -36,6 +36,14 @@
                     <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="unsetCookie.php">Logout</a></li>                
                     <li style="float:right;"><a href="history.php">History</a></li>
                 </ul>
+                <div class="box">
+                    <form action="search.php" method ="POST">
+                        <input type="search" name ="searchBar" placeholder="Type something...">
+                        <button class ="buttonSearch" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
         </header>
     <body>
 <!--------------------------- FORM POP-UP ADDCARD ------------------------------>
@@ -57,7 +65,7 @@
     <table class="tableView">
     <tr>
         <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Documents of Neurology</b></h2></th>
-        <th style="border-bottom:1px solid black;">
+        <th style="text-align:center; border-bottom:1px solid black;">
             <?php echo $showButtonPlus; ?>
         </th>
     </tr>

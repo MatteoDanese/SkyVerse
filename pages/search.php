@@ -35,10 +35,18 @@
                     <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="unsetCookie.php">Logout</a></li>                
                     <li style="float:right;"><a href="history.php">History</a></li>
                 </ul>
+                <div class="box">
+                    <form action="search.php" method ="POST">
+                        <input type="search" name ="searchBar" placeholder="Type something...">
+                        <button class ="buttonSearch" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
         </header>
     <body>
 <!-- DIV CARDS -->
-    <div class="divCards" style ="justify-content:center;margin-top:50px;">
+    <div class="divCards" style ="text-align:left; align-items: left; justify-content:center;margin-top:50px;">
     <table class="tableView">
     <tr>
         <th style="text-align:left; border-bottom:1px solid black;"><h2><b>Results for "<?php echo $_POST['searchBar']; ?>"</b></h2></th>

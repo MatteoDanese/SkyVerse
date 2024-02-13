@@ -3,6 +3,8 @@
 
     <head>
         <title>History</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <style>
             *{
                 margin: 0;
@@ -134,13 +136,53 @@
                 font-size:20px;
                 border-right: 1px solid #ddd;
             }
+
+            
+/*-----------------------------SEARCH BAR-----------------------------*/
+body{
+  text-align:center;
+}
+.box{
+  height: 30px;
+  cursor:pointer;
+  align-items: center;
+  padding: 10px 20px;
+  background:transparent ;
+  border-radius: 30px;
+}
+
+.box:hover input{
+  width:400px;
+}
+
+.box input{
+  width:200px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #fff;
+  outline:none;
+  border:none;
+  background-color: whitesmoke;
+  transition: 800ms;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.buttonSearch{
+  color: black;
+  background-color: whitesmoke;
+  font-weight:bold;
+  padding: 9px 11px;
+  border-radius:20px;
+  text-decoration: none;
+  border:none;
+  cursor:pointer;
+}
+
             
         </style>
     </head>
     <?php
-#        $docs = json_decode(file_get_contents('documentInformations.json'), true);
-#        $docSpace = json_decode(file_get_contents('documentSpace.json'), true);
-
         if(!isset($_COOKIE['username'])) {
             $showButton = "";
             $showLable = true;
@@ -155,16 +197,7 @@
             $showLogout = true;
             $response = "<h3>Home Page di $username</h3><br />";
         }
-/*
-        foreach($docs as $doc){
-            $document = [
-                "author" => $doc['author'],
-                "title" => $doc['path'],
-                "content" => $doc['content']
-            ];
-            $history[] = $document;
-        }
-*/
+        
     require_once('../DataBase/DB.php');
     $DB = new DB();
     $history = [];
@@ -194,9 +227,17 @@
                     <li style="float:right; display: <?php echo $showLable ? 'block' : 'none'; ?>; "><a href="login.php">Login</a></li>
                     <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="unsetCookie.php">Logout</a></li>                
                 </ul>
+                <div class="box">
+                    <form action="search.php" method ="POST">
+                        <input type="search" name ="searchBar" placeholder="Type something...">
+                        <button class ="buttonSearch" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
         </header>
         <body>
-            <section>
+            <section>            
                 <form class="form">
                 <table class="table">
                     <thead>
