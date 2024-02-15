@@ -1,4 +1,4 @@
-# Benvenuti su SpaceITNeuro Community
+# Benvenuti alla community di SkyVerse
 
 ## Descrizione dell'applicazione
 
