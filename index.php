@@ -117,7 +117,7 @@
                 <div class="divCards" id ="divCards" style ="justify-content:center;margin-top:50px;">
                     <div class="card">
                         <div class="cardImgContainer">
-                            <a href="pages/space.php"> <!-- <img class="cardImg" src="imgs/nebula.jpg" style="width:100%"></a> -->
+                            <a href="pages/space.php"> <!-- <img class="cardImg" src="imgs/nebula.jpg" style="width:100%">--> </a> 
                             <video style="object-fit: cover; height: auto;" autoplay muted loop>
                             <source src="imgs/blackHole.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -129,7 +129,7 @@
                     </div>
                     <div class="card">
                         <div class="cardImgContainer">
-                            <a href="pages/IT.php"><!-- <img class="cardImg" src="imgs/info.png" style="width:100%"></a>  -->
+                            <a href="pages/IT.php"><!-- <img class="cardImg" src="imgs/info.png" style="width:100%">--> </a>
                             <video style="object-fit: cover;  height: auto;" autoplay muted loop>
                             <source src="imgs/IT.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -141,7 +141,7 @@
                     </div>
                     <div class="card">
                         <div class="cardImgContainer">
-                            <a href="pages/neuro.php"> <!-- <img class="cardImg" src="imgs/sinapsi.jpg" style="width:100%"></a> -->
+                            <a href="pages/neuro.php"> <!-- <img class="cardImg" src="imgs/sinapsi.jpg" style="width:100%">--> </a>
                             <video style="object-fit: cover;  height: auto;" autoplay muted loop>
                             <source src="imgs/neuro.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -157,7 +157,11 @@
     </body>
     <footer>
         <div class="footer">
-            <p>&copy; 2024 | Tutti i diritti riservati.</p>
+            <p>&copy; 2024 Danese Matteo | Tutti i diritti riservati.</p> <br><br> <br><br> 
+            <p><b>SkyVerse</b>, un luogo dove gli appassionati di spazio, psicologia, informatica e ogni forma di conoscenza possono condividere e scoprire nuovi documenti e risorse.</p><br>
+            <p>Ho creato questo spazio con l'obiettivo di fornire una piattaforma inclusiva e collaborativa dove le menti curiose possono esplorare, apprendere e condividere le proprie conoscenze.</p>
+            <br><br><br><br><br><br>
+            <p style="font-size: 20px;"><i style="font-family: 'Pacifico', serif;"> "Celebriamo la <b style="font-family: 'Pacifico', serif;">mente</b> che osa esplorare, la <b style="font-family: 'Pacifico', serif;">creatività</b> che abbraccia l'ignoto e il <b style="font-family: 'Pacifico', serif;">coraggio</b> che guida l'innovazione." - Danese Matteo</i></p>            
         </div>
     </footer>
 </html>
