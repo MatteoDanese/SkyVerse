@@ -44,7 +44,7 @@
         <script> 
             function redirect(){ window.location.href = "pages/login.php"; } 
             function scrollToPosition() {
-                var pos = document.getElementById('divCards');    
+                var pos = document.getElementById('exploreText');    
                 if (pos) {
                     pos.scrollIntoView({ behavior: 'smooth' });
                 }
@@ -109,7 +109,7 @@
 
             <div class ="topicSectionDiv" >
                     <div class="topicGrid">
-                        <p class="bigParagraph" style="text-shadow: none; font-size:50px; color:#fff " >Explore Topics from SkyVerse </p><br>
+                        <p class="bigParagraph" id="exploreText" style="text-shadow: none; font-size:50px; color:#fff " >Explore Topics from SkyVerse </p><br>
                         <!-- <?= $showButton ?> BUTTON PLUS -->
                     </div>
 
