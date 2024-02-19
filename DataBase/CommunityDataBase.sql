@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `documents`
 --
 
+CREATE DATABASE IF NOT EXISTS `communitydatabase` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `communitydatabase`;
+
 CREATE TABLE `documents` (
   `ID` int(11) NOT NULL,
   `tag` enum('space','it','neuroscience') DEFAULT NULL,
