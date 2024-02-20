@@ -36,12 +36,12 @@
     <header class="header">
         <div style="background-color: black;"><h1 class="title" style="cursor:default;"><b>SkyVerse</b></h1></div>
             <ul>
-                <li><a class="home" href="index.php">Home</a></li>
+                <li><a class="marginLeft" href="index.php">Home</a></li>
                 <li><a href="pages/space.php">Space</a></li>
                 <li><a href="pages/IT.php">Computer Sience</a></li>
                 <li><a href="pages/neuro.php">Neurology</a></li>
-                <li style="float:right; display: <?php echo $showLable ? 'block' : 'none'; ?>; "><a href="pages/login.php">Login</a></li>
-                <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a href="pages/unsetCookie.php">Logout</a></li>                
+                <li style="float:right; display: <?php echo $showLable ? 'block' : 'none'; ?>; "><a class ="marginRight" href="pages/login.php">Login</a></li>
+                <li style="float:right; display: <?php echo $showLogout ? 'block' : 'none'; ?>;"><a class ="marginRight" href="pages/unsetCookie.php">Logout</a></li>                
             </ul>
             <div class="box">
                 <form action="pages/search.php" method ="POST">
