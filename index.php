@@ -2,38 +2,20 @@
 <html>
 <!--------------------------- COOKIE ------------------------------>
     <?php
-
-    if(!isset($_COOKIE['username'])) {
-        $showButton = "";
-        $showLable = true;
-        $showLogout = false;
-    }
-    else
-    {
-        $username = $_COOKIE['username'];
-        $showButton = '<button class="iconBtn" style="margin-right:40px;" onclick="openForm()"><i class="fa fa-plus"></i></button>';
-        $showLable = false;
-        $showLogout = true;
-        $response = "<h3>Home Page di $username</h3><br />";
-    }
-
-/*--------------------------- SESSION ------------------------------
-        session_start();
-        if(!isset($_SESSION['username']))
-        {
-            $showButton = false;
+        if(!isset($_COOKIE['username'])) {
+            $showButton = "";
             $showLable = true;
-            //header("Location: login.php");
+            $showLogout = false;
         }
         else
         {
-            $showButton = true;
+            $username = $_COOKIE['username'];
+            $showButton = '<button class="iconBtn" style="margin-right:40px;" onclick="openForm()"><i class="fa fa-plus"></i></button>';
             $showLable = false;
-            $response = "<h3>Bentornato ".$_SESSION['username'].", ecco le tue ricette</h3><br />";
+            $showLogout = true;
+            $response = "<h3>Home Page di $username</h3><br />";
         }
-        */
     ?>
-
 <!--------------------------- HEADER ------------------------------>
     <head>
         <script src="script/script.js"></script>
@@ -72,16 +54,6 @@
     
     </header>
     <body style="text-align:center;">
-    
-<!--
-            <div style="text-align:right; justify-content:right;"> 
-                    <button class="loginBtn" onclick="redirect()" style="display: <?php echo $showLable ? 'block' : 'none'; ?>; "><b>Login</b></button>  
-                <form action ="unsetCookie.php" method ="POST"  style="display: <?php echo $showLogout ? 'block' : 'none'; ?>;">
-                    <button type="submit" class ="btnLogOut"><i class="gg-log-out" style="display: <?php echo $showLogout ? 'block' : 'none'; ?>;"></i></button>
-                </form>
-            </div>
--->
-    
 <!--------------------------- SEZIONE ------------------------------>
         <section id="cardSection" style="text-align: center;">
         <div class ="video">
@@ -91,11 +63,9 @@
             </video>
         </div>
         <br><br><br>
-
 <!---------------------------HOMEPAGE------------------------------>
             <div class="divHomePageImg">
                 <!-- <img class="img" src="imgs/nasa.jpg"  style="width:100%;  height: auto;"> -->
-                
                 <div class="overlayText">
                    <?php if(!empty($response)){ /*echo*/ $response; }?> 
                    <p class="bigParagraph">IT and Space </p><br>
@@ -106,15 +76,14 @@
                    <button class="getStartedBtn"  onclick="scrollToPosition()"><h2>GET STARTED</h2></button>
                 </div>
             </div>
-
             <div class ="topicSectionDiv" >
                     <div class="topicGrid">
                         <p class="bigParagraph" id="exploreText" style="text-shadow: none; font-size:50px; color:#fff " >Explore Topics from SkyVerse </p><br>
-                        <!-- <?= $showButton ?> BUTTON PLUS -->
+                        <!-- <?= $showButton ?> BUTTON PLUS funzione disattivata per il momento -->
                     </div>
-
-<!--------------------------- ADDCARDS MECHANISM ------------------------------>
+<!--------------------------- 3 TOPIC PRINCIPALI ------------------------------>
                 <div class="divCards" id ="divCards" style ="justify-content:center;margin-top:50px;">
+                <!--------------------------- SPACE ------------------------------>
                     <div class="card">
                         <div class="cardImgContainer">
                             <a href="pages/space.php"> <!-- <img class="cardImg" src="imgs/nebula.jpg" style="width:100%">-->  
@@ -128,6 +97,7 @@
                             </a>
                         </div>
                     </div>
+                <!--------------------------- IT ------------------------------>
                     <div class="card">
                         <div class="cardImgContainer">
                             <a href="pages/IT.php"><!-- <img class="cardImg" src="imgs/info.png" style="width:100%">--> 
@@ -141,6 +111,7 @@
                             </a>
                         </div>
                     </div>
+                <!--------------------------- PSICOLOGY ------------------------------>
                     <div class="card">
                         <div class="cardImgContainer">
                             <a href="pages/neuro.php"> <!-- <img class="cardImg" src="imgs/sinapsi.jpg" style="width:100%">--> 
@@ -158,6 +129,7 @@
             </div>
         </section>
     </body>
+<!--------------------------- FOOTER ------------------------------>
     <footer>
         <div class="footer">
             <p>&copy; 2024 Danese Matteo | Tutti i diritti riservati.</p> <br><br> <br><br> 
