@@ -67,7 +67,7 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`username`, `email`, `password`) VALUES
-('matteo', 'cianodmatteo@gmail.com', 'ciao');
+('matteo', '6190140@itisrossi.vi.it', '$2y$10$RVr2gPOViH8Z.YHn5cbS0O626jrlnHYYpFhVAg4RIqPpt7tujivZO');
 
 --
 -- Indici per le tabelle scaricate
